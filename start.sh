@@ -1,14 +1,12 @@
-if [ -z "$UPSTREAM_REPO" ]; then
+if [ -z $UPSTREAM_REPO ]
+then
   echo "Cloning main Repository"
-  git clone https://github.com/lazyindu/test1.git /LazyPrincess || { echo "Failed to clone main repository"; exit 1; }
+  git clone https://github.com/Tanujairam-TG/Enthiran /Enthiran
 else
   echo "Cloning Custom Repo from $UPSTREAM_REPO "
-  git clone "$UPSTREAM_REPO" /LazyPrincess || { echo "Failed to clone custom repository"; exit 1; }
+  git clone $UPSTREAM_REPO /Enthiran
 fi
-
-cd /LazyPrincess || { echo "Failed to change directory to /LazyPrincess"; exit 1; }
-
-pip3 install -U -r requirements.txt || { echo "Failed to install Python dependencies"; exit 1; }
-
+cd /Enthiran
+pip3 install -U -r requirements.txt
 echo "Starting Bot...."
-python3 bot.py || { echo "Failed to start the bot"; exit 1; }
+python3 bot.py
